@@ -1,4 +1,7 @@
-#include<stdio.h>
-void main(){
-    prontf("Começando o jogo...");
+#include <stdio.h>
+int main()
+{
+    printf("Hackeando a nasa");
+    return 0;
+    
 }
