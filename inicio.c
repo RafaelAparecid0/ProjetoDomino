@@ -1,4 +1,4 @@
 #include<stdio.h>
 void main(){
-    printf("Começando o jogo...Bem vindo, jogador");
+    printf("Começando o Jogo...Bem vindo, jogador!");
 }
