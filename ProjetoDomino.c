@@ -6,7 +6,7 @@ struct {
   int lado2;
 };
 
-int main ()
+int main (void)
 {
   //printf ("[%f|%f]") Os lados das peças, exemplo: [5|4]
   //Fabrizio
