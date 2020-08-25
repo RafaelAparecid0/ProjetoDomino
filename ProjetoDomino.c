@@ -1,7 +1,12 @@
 #include <stdio.h>
-int main()
+#include <stdlib.h>
+
+struct {
+  int lado1;
+  int lado2;
+};
+
+int main ()
 {
-    printf("DOIS A UM PSG MEU PARCERO, ANOTA AI");
-    return 0;
-    
+  //printf ("[%f|%f]") Os lados das peças, exemplo: [5|4]
 }
