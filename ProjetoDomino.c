@@ -14,7 +14,7 @@ void mostrar()
     int esquerda, direita, cont;
     //printf("O sistema deverá permitir ao usuário mostrar todas as peças do dominó na tela (modo texto ou gráfico)");
     
-    // Sequencia de mapeamento dos indices das pedras do jogo de dominó
+    // Sequencia de mapeamento dos indices das pedras do jogo de dominó.
     
     pecas_domino.vetor_pos_E[0] = 0; 
     pecas_domino.vetor_pos_E[1] =0;
