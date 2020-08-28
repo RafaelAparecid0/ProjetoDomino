@@ -1,6 +1,8 @@
 #include<stdio.h>
 int main(){
+   
 
+   //TESTE PARA FORMATAÇÃO DAS PEÇAS(IRRELEVANTE)
 typedef struct pecaDomino{
     int pecaDomino;
     int valor01;
