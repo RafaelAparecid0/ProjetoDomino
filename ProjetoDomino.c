@@ -1,3 +1,4 @@
+//INCLUINDO BIBLIOTECAS
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -7,34 +8,54 @@ typedef struct Peca
 {
     int esquerda;
     int direita;
-}Peca[28];
+}Peca [28] pecas;
 
-Peca pecas;
 
-/*Peca[] mostrar()
-{
-    peca nova ()
-}
-*/
-void organizar()
 
-{
-    printf("O sistema deverá permitir ao usuário organizar as peças (sequencia correta) para jogar novamente");
-    system("pause");
-}
 
-void embaralhar()
-{
-    printf("O sistema deve permitir ao usuário embaralhar as peças do domino");
-
-    system("pause");
+pecas[] gerarOrdem(){ //este trecho do código tem por objetivo gerar a ordem correta das peças do 
+                      //dominó para posteriormente embaralharmos.
+   peca nova;
+   Peca[28] baralho;
+   int i,j;
+   int cont = 0;
+   for(i = 0;i < 6; i++){
+      for(j = 0; j < 6; j++){
+         nova.esq = i;
+         nova.dir = j;
+         baralho[cont] = nova;
 }
 
+Peca[] gerarEmbaralhado(Peca[] origin){ //este trecho do código(junto com o "for" abaixo) nos permite embralharmos as peças do dominó.
+     Peca[28] embaralhado;
+     int[28] crivo;
+     int i, j, index;
+     for(i = 0; i < 28; i++){
+        crivo[i] = 0;
+}
 
-void montar()
-{
-    printf("O sistema deverá montar as peças do dominó com a numeração correta do jogo "); 
-    system("pause");
+for(j = 0; j<28; j++){ 
+   index = geraAleatorio();
+   while(crivo[index]== 1){
+      index = geraAleatorio();
+
+}
+
+embaralhado[J] = origin[index];
+crivo[index] = 1;
+}
+return embaralhado;
+
+
+
+
+void imprimePeca(pecas[] baralho){ // aqui nós abrimos uma função para imprimir as peças do dominó já embaralhadas.
+ char baralho;
+ int i;
+ int tamanho = (sizeof(baralho)/ sizeof(Peca));
+ for(i = 0; i < tamanho; i++){
+   printf("[%d][%d]", baralho[i].esq, baralho[i].dir);
+}
 }
 
 //Menu para começar o jogo
