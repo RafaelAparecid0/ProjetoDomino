@@ -1,61 +1,85 @@
 //INCLUINDO BIBLIOTECAS
+
 #include<stdio.h>
 #include<stdlib.h>
 
-//DECLARAÇÃO DO STRUCT COM AS PEÇAS
+//DECLARAÇÃO DO STRUCT PARA AS PEÇAS
 
-typedef struct Peca
+typedef struct Peca{
+    int esq;
+    int dir;
+}Peca [28];
+
+Peca pecas;
+
+//Case 4: O sistema deverá permitir ao usuário mostrar todas as peças do dominó na tela 
+
+void mostrar()
 {
-    int esquerda;
-    int direita;
-}Peca [28] pecas;
-
-
-
-
-pecas[] gerarOrdem(){ //este trecho do código tem por objetivo gerar a ordem correta das peças do 
-                      //dominó para posteriormente embaralharmos.
-   peca nova;
-   Peca[28] baralho;
-   int i,j;
-   int cont = 0;
-   for(i = 0;i < 6; i++){
-      for(j = 0; j < 6; j++){
-         nova.esq = i;
-         nova.dir = j;
-         baralho[cont] = nova;
+    printf("O sistema deverá permitir ao usuário mostrar todas as peças do dominó na tela ");
+    system("pause");
 }
 
-Peca[] gerarEmbaralhado(Peca[] origin){ //este trecho do código(junto com o "for" abaixo) nos permite embralharmos as peças do dominó.
-     Peca[28] embaralhado;
-     int[28] crivo;
-     int i, j, index;
-     for(i = 0; i < 28; i++){
-        crivo[i] = 0;
+//Case 3: Organizar as peças
+
+void organizar()
+{
+    printf(" O sistema deverá permitir ao usuário organizar as peças (sequencia correta) para jogar novamente.");
+    system("pause");
 }
 
-for(j = 0; j<28; j++){ 
-   index = geraAleatorio();
-   while(crivo[index]== 1){
-      index = geraAleatorio();
 
+// Case 2: Embaralhar as peças do domino 
+
+Peca[] embaralhar(Peca[] origin)
+{
+    Peca[28] embaralhado;
+    int[28] crivo;
+    int i,j, index;
+    for(i=0;i<28;i++)
+    {
+        crivo[i]=0;
+    }
+    for(j=0;j<28;j++)
+    {
+        index=geraAleatorio();
+        while(crivo[index]==1)
+        {
+            index=geraAleatorio();
+        }
+        embaralhado[j]=origin[index];
+        crivo[index]=1;
+    }
+    return embaralhado;
+}
+void imprimiPeca(Peca[] baralho)
+{
+    int i;
+    int tamanho = (sizeof(baralho)/sizeof(Peca));
+    for(i = 0; i<tamanho;i++)
+    {
+        printf("[%d|%d]", baralho[i].esq,baralho[i].dir);
+    }
 }
 
-embaralhado[J] = origin[index];
-crivo[index] = 1;
-}
-return embaralhado;
+// Case 1: Montar as peças do dominó com a numeração correta do jogo 
 
-
-
-
-void imprimePeca(pecas[] baralho){ // aqui nós abrimos uma função para imprimir as peças do dominó já embaralhadas.
- char baralho;
- int i;
- int tamanho = (sizeof(baralho)/ sizeof(Peca));
- for(i = 0; i < tamanho; i++){
-   printf("[%d][%d]", baralho[i].esq, baralho[i].dir);
-}
+Peca[] montar()
+{
+    peca nova;
+    Peca[28] baralho;
+    int i,j;
+    int count = 0;
+    for(i=0;i<=6;i++)
+    {
+        for(j=i;j<=6;j++)
+        {
+            nova.esq = i;
+            nova.dir= j;
+            baralho[count]= nova;
+        }
+    }
+    return baralho;
 }
 
 //Menu para começar o jogo
@@ -91,10 +115,12 @@ void comecar_jogo()
     }while (opcao2 !=5 ); // Enquanto opção for diferente de 5
 }
 
+//Função principal
+
 int main()
 {
     int opcao;
-    do 
+    do // Faça
     {
         fflush (stdin); //Função para limpar o buffer do teclado, normalmente utilizada em conjunto da biblioteca <stdio.h>
         system ("cls"); // Limpa a tela sempre que o usuário digitar uma opção
@@ -121,9 +147,9 @@ int main()
         switch (opcao) // Caso a opção seja: 
         {
             case 1: comecar_jogo(); break;  //1: Chama a função que vai começar o jogo
-            //case 2: salvar_jogo (); break; //2: Chama a função para salvar o jogo
+            //case 2: salvar_jogo (); break; 2: Chama a função para salvar o jogo
         }
-    } while (opcao != 0); //Vai rodar o menu inicial até o usuário digitar 0
+    } while (opcao != 0); // Enquanto opção for diferente de 0
     system ("pause");
     return 0;
 
