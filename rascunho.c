@@ -1,6 +1,7 @@
 #include<stdio.h>
-int main(){
-    
+int main()
+{
+    printf("Vai assistir o Batman dublado, guei");    
 
     return 0;
 }
