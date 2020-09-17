@@ -38,7 +38,7 @@ void comecar_jogo()
             case 3: organizar(); break;   // Chama a  função para organizar as peças
             case 4: mostrar(); break;     // Chama a função para mostrar todas as peças
         }
-    }while (opcao2 !=5 ); // Enquanto opção for diferente de 5
+    } while (opcao2 !=5 ); // Enquanto opção for diferente de 5
 }
 
 //Função principal
