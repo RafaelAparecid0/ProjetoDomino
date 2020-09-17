@@ -1,7 +1,13 @@
-//"COLAGEM DOS CÓDIGOS"
+/*
+    ******************************************************************************** 
+                            Camada de controle ou controlador                            
+    ********************************************************************************"
+*/
 
-#include<stdio.h>
-int main(){
+#include <stdio.h>
+
+int main()
+{
 //funções p/ conectar
 
     return 0;
