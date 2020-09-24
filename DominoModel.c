@@ -9,6 +9,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+
 //DECLARAÇÃO DO STRUCT PARA AS PEÇAS
 
 typedef struct Peca{
@@ -20,6 +21,15 @@ Peca pecas;
 
 //Case 4: O sistema deverá permitir ao usuário mostrar todas as peças do dominó na tela 
 
+//Declaração para struct de distribuição de peças
+
+typedef struct tPedra 
+{
+    int pedraBuffer;
+} tPedra;
+
+
+
 void determinarNumdeJogadores()
 {
     int i,p, j, enderecoJogador, pontas[2], vencedor;
@@ -29,13 +39,15 @@ void determinarNumdeJogadores()
 
 
 
+//Essa função seria de um programa externo, não sei como fazer
+
 void distribuicaoDePecas()
 {
-    tPilha APE;
+    tPilha APE; //Pedras a serem compradas (APE) 
 	tListaSimplesEncadeada Mesa;
 	tListaSimplesEncadeada J[4];
 
-    
+    int numeroJogadores = perguntaNumeroJodagores();    
     //Distribui as pedras
 		printf(" Computador - Vamos agora distribuir as peças...\n");
 		while( tamListaSimples(J[0]) != MAX_MAO ){
@@ -46,7 +58,7 @@ void distribuicaoDePecas()
 			}
 		}
 
-		for(i=0 ; i<numeroJogadores ; i++){
+		for(i=0 ; i<numeroJogadores; i++){
 			printf("\n Computador - Essas são as peças do jogador %d \n ",i+1);
 			imprimeListaSimples(J[i]);
 		}
@@ -67,8 +79,6 @@ void distribuicaoDePecas()
 		printf(" Jogador %d - Coloco a pedra ", enderecoJogador+1);
 		imprimePedra(pedraBuffer);
 }
-
-
 
 // Case 2: Embaralhar as peças do domino 
 
