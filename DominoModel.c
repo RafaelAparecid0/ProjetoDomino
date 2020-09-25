@@ -9,10 +9,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-
 //DECLARAÇÃO DO STRUCT PARA AS PEÇAS
 
-typedef struct Peca{
+typedef struct Peca
+{
     int esq;
     int dir;
 }Peca [28];
@@ -28,16 +28,15 @@ typedef struct tPedra
     int pedraBuffer;
 } tPedra;
 
-
-
+/*
+    Tentiva de determinar numeros de jogadores
+*/
 void determinarNumdeJogadores()
 {
     int i,p, j, enderecoJogador, pontas[2], vencedor;
 	tPedra pedraBuffer;
 	bool esquerda, inicio, flag, denovo;
 }
-
-
 
 //Essa função seria de um programa externo, não sei como fazer
 
@@ -103,6 +102,7 @@ Peca[] embaralhar(Peca[] origin)
     }
     return embaralhado;
 }
+
 void imprimiPeca(Peca[] baralho)
 {
     int i;

@@ -1,13 +1,45 @@
+#include <stdio.h>
+
 /*
     ******************************************************************************** 
                             Camada de apresentação ou visualização                            
     ********************************************************************************"
 */
+void sobre_jogo()
+{
+    printf ("
+    *******************\n
+    Desenvolvido por:\n
+    *******************\n
+    Arthur Rocha, Fabricio DeBiasi e Rafael Aparecido \n
+
+    ********\n
+    Matéria:\n
+    ********\n
+    Laboratório de Programação: Linguagem C\n
+    ");
+    system (pause);
+    return 0;
+}
+
+/*
+void regras_jogo()
+{
+
+}
 
 
-#include <stdio.h>
+void carregar_jogo ()
+{
 
-int main(){
+}
+
+void continuar_jogo()
+{
+
+}
+
+*/
 //Menu para começar o jogo
 
 void comecar_jogo()
@@ -63,7 +95,11 @@ int main()
 	    printf("	|             |   - OPÇÕES  -                            |               |\n");
 	    printf("	|             |   -    1    -      Jogo                  |               |\n");
 	    printf("	|             |   -    2    -     Salvar                 |               |\n");
-	    printf("	|             |   -    0    -      Sair                  |               |\n");
+	    printf("	|             |   -    3    -    Continuar               |               |\n");
+        printf("	|             |   -    4    -    Carregar                |               |\n");
+        printf("	|             |   -    5    -     Regras                 |               |\n");
+        printf("	|             |   -    6    -   Sobre o jogo             |               |\n");
+        printf("	|             |   -    0    -      Sair                  |               |\n");
 	    printf("	|             |                                          |               |\n");
 	    printf("	|             |__________________________________________|               |\n");
 	    printf("	|                                                                        |\n");
@@ -72,8 +108,12 @@ int main()
         scanf ("%d", &opcao);
         switch (opcao) // Caso a opção seja: 
         {
-            case 1: comecar_jogo(); break;  //1: Chama a função que vai começar o jogo
-            //case 2: salvar_jogo (); break; 2: Chama a função para salvar o jogo
+            case 1: comecar_jogo(); break;   //1: Chama a função que vai começar o jogo
+            //case 2: salvar_jogo (); break;   2: Chama a função para salvar o jogo
+            //case 3: continuar_jogo(); break; 3: Chama a função para continuar o jogo 
+            //case 4: carregar_jogo(); break;  4: Chama a função para carregar o jogo
+            //case 5: regras_jogo(); break;    5: Chama a função para mostrar regras do jogo
+            //case 6: sobre_jogo();            6: Chama a função para mostrar detalhes sobre o jogo
         }
     } while (opcao != 0); // Enquanto opção for diferente de 0
     system ("pause");

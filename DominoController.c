@@ -1,21 +1,30 @@
 /*
     ******************************************************************************** 
                             Camada de controle ou controlador                            
-    ********************************************************************************"
+    ********************************************************************************
 */
 
 #include <stdio.h> 
+#include "DominoModel.h"
 
-/*Declarando os programas Model e View para chamada de funções*/
-
-#include "DominoModel.c" 
-#include "DominoView.c"  
-
-int main()
+/*
+ ============================ struct banco de compra peças ==================================                            
+*/
+    struct Compra
+    {
+        BancoDeCompras[28];
+    };
+/*
+============================= struct para os dois jogadores ==================================                            
+*/
+    struct Jogadores
+    {
+        players [2]; 
+    };
+    
+/*
+void NovoJogo ()
 {
-    void MenuPrincipal ();
-    void comecar_jogo();
-    void mostrar();
-    void organizar();
-    return 0;
+    fillCompras(BancoDeCompras);
 }
+*/
