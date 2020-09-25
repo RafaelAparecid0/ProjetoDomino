@@ -42,7 +42,7 @@ else
 			//imprime a mão dos jogadores
 			for(i=0 ; i<numeroJogadores ; i++){
 				printf("\n Computador - Essas são as peças do jogador %d \n ",i+1);
-				imprimeListaSimples(J[i]);
+				//imprimeListaSimples(J[i]);
 			}
 			printf("\n\n Computador - aperte enter para ver a próxima rodada");
 			getchar();
