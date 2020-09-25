@@ -20,3 +20,25 @@ int  perguntaNumeroJodagores () {
 	return num_jogadores;
 
 }
+
+//Imprime a mesa
+			printf("\n Computador: Essas São as pedras da mesa\n ");
+			imprimeListaSimples(Mesa);
+
+			//Imprime a proxima peça do APE
+			if(APE.topo>-1){
+				printf("\n Computador: Essa é a proxima pedra a ser comprada: ");
+				mostraTopoPilha(APE);
+				printf("\n");
+			}
+			else
+				printf("\n Computador - Não há mais pedras para compra \n");
+
+			//Imprime a mão dos jogadores
+			for(i=0 ; i<numeroJogadores ; i++){
+				printf("\n Computador - Essas são as peças do jogador %d \n ",i+1);
+				imprimeListaSimples(J[i]);
+			}
+			printf("\n\n Computador - aperte enter para ver a próxima rodada");
+			getchar();
+			clear();

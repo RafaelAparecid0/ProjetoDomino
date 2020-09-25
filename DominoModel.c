@@ -27,7 +27,28 @@ typedef struct Peca
 
 Peca pecas;
 
-//Case 4: O sistema deverá permitir ao usuário mostrar todas as peças do dominó na tela 
+printf("\n");
+//Criação de uma mesa:
+nPedras;
+printf("\n Computador: Essas São as pedras da mesa\n ");
+if(nPedras>-1){
+				printf("\n Computador: Essa é a proxima pedra a ser comprada: ");
+				mostraTopoPilha(nPedras);
+				printf("\n");
+			}
+else
+				printf("\n Computador - Não existe mais pedras para compra \n");
+
+			//imprime a mão dos jogadores
+			for(i=0 ; i<numeroJogadores ; i++){
+				printf("\n Computador - Essas são as peças do jogador %d \n ",i+1);
+				imprimeListaSimples(J[i]);
+			}
+			printf("\n\n Computador - aperte enter para ver a próxima rodada");
+			getchar();
+			clear();
+
+
 
 //Declaração para struct de distribuição de peças
 
@@ -36,16 +57,8 @@ typedef struct tPedra
     int pedraBuffer;
 } tPedra;
 
-/*
-    Tentiva de determinar numeros de jogadores
-*/
 
-void determinarNumdeJogadores()
-{
-    int i,p, j, enderecoJogador, pontas[2], vencedor;
-	tPedra pedraBuffer;
-	//bool esquerda, inicio, flag, denovo;
-}
+
 
 // Case 2: Embaralhar as peças do domino 
 
