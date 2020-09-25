@@ -1,5 +1,13 @@
 /*
     ******************************************************************************** 
+                    Arthur Rocha, Fabricio De Biasi e Rafael Aparecido
+                                        25/09/2020                             
+    ********************************************************************************"
+*/
+
+
+/*
+    ******************************************************************************** 
                             Camada da lógica da aplicação                            
     ********************************************************************************"
 */
@@ -15,7 +23,7 @@ typedef struct Peca
 {
     int esq;
     int dir;
-}Peca [28];
+} Peca [28];
 
 Peca pecas;
 
@@ -31,57 +39,17 @@ typedef struct tPedra
 /*
     Tentiva de determinar numeros de jogadores
 */
+
 void determinarNumdeJogadores()
 {
     int i,p, j, enderecoJogador, pontas[2], vencedor;
 	tPedra pedraBuffer;
-	bool esquerda, inicio, flag, denovo;
-}
-
-//Essa função seria de um programa externo, não sei como fazer
-
-void distribuicaoDePecas()
-{
-    tPilha APE; //Pedras a serem compradas (APE) 
-	tListaSimplesEncadeada Mesa;
-	tListaSimplesEncadeada J[4];
-
-    int numeroJogadores = perguntaNumeroJodagores();    
-    //Distribui as pedras
-		printf(" Computador - Vamos agora distribuir as peças...\n");
-		while( tamListaSimples(J[0]) != MAX_MAO ){
-
-			for(i=0 ; i<numeroJogadores ; i++){
-				Desempilha(&APE,&pedraBuffer);
-				insereOrdenadoListaSimples(&J[i], pedraBuffer);
-			}
-		}
-
-		for(i=0 ; i<numeroJogadores; i++){
-			printf("\n Computador - Essas são as peças do jogador %d \n ",i+1);
-			imprimeListaSimples(J[i]);
-		}
-
-		// Pause para análise das pedras
-		printf("\n\n Computador - Agora podemos jogar =)\n");
-		printf(" Computador - Aperte enter para começar.");
-		getchar(); //pause
-		clear();
-		printf(" Você - Vamos lá! \n");
-		printf(" Computador - O primeiro a jogar vai ser o de maior pedra \n");
-
-		//Faz a primeira jogada, procurando o maior peça
-		enderecoJogador = buscaIniciante(J,numeroJogadores);
-		printf("\n Computador - O primeiro jogador é o número %d\n", enderecoJogador+1);
-		pedraBuffer = removeElementoPosListaSimples(&J[enderecoJogador], 0);
-		if(!insereInicioListaSimples(&Mesa, pedraBuffer)) erro();
-		printf(" Jogador %d - Coloco a pedra ", enderecoJogador+1);
-		imprimePedra(pedraBuffer);
+	//bool esquerda, inicio, flag, denovo;
 }
 
 // Case 2: Embaralhar as peças do domino 
 
-Peca[] embaralhar(Peca[] origin)
+Peca [] embaralhar (Peca[] origin)
 {
     Peca[28] embaralhado;
     int[28] crivo;
@@ -133,4 +101,4 @@ Peca[] montar()
     return baralho;
 }
 
-}
+
