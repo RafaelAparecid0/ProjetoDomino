@@ -27,35 +27,6 @@ typedef struct Peca
 
 Peca pecas;
 
-void Mesa ()
-{
-    printf("\n");
-
-    //Criação de uma mesa:
-    tPedra;
-
-    printf("\n Computador: Essas São as pedras da mesa\n ");
-
-    if(tPedra>-1)
-        {
-            printf("\n Computador: Essa é a proxima pedra a ser comprada: ");
-            mostraTopoPilha(nPedras);
-            printf("\n");
-        }
-    else
-            printf("\n Computador - Não existe mais pedras para compra \n");
-
-    //imprime a mão dos jogadores
-    for(i=0 ; i<numeroJogadores ; i++)
-        {
-            printf("\n Computador - Essas são as peças do jogador %d \n ",i+1);
-            //imprimeListaSimples(J[i]);
-        }
-        printf("\n\n Computador - aperte enter para ver a próxima rodada");
-        getchar();
-        clear();
-
-}
 //Declaração para struct de distribuição de peças
 
 typedef struct tPedra 
@@ -63,10 +34,45 @@ typedef struct tPedra
     int pedraBuffer;
 } tPedra;
 
+void Distribuicao()
+{
+
+} 
+
+void Mesa ()
+{
+    printf("\n");
+
+    //Criação de uma mesa:
+    Peca pecas;
+
+    int numeroJogadores = num_jogadores();
+
+    printf("\n Computador: Essas São as pedras da mesa\n ");
+
+    if(pecas>-1)
+        {
+            printf("\n Computador: Essa é a proxima pedra a ser comprada: ");
+            mostraTopoPilha(pecas);
+            printf("\n");
+        }
+    else
+            printf("\n Computador - Não existe mais pedras para compra \n");
+
+    //imprime a mão dos jogadores
+    for(int i=0 ; i < numeroJogadores ; i++)
+        {
+            printf("\n Computador - Essas são as peças do jogador %d \n ",i+1);
+            Peca(pecas[i]);
+        }
+        printf("\n\n Computador - aperte enter para ver a próxima rodada");
+        getchar();
+        clear();
+}
+
 // Case 2: Embaralhar as peças do domino 
 
 void embaralhado (Peca pecas[])
-
 {
     Peca pecas[28];
     /*int[28] crivo;
@@ -86,14 +92,14 @@ void embaralhado (Peca pecas[])
         crivo[index]=1;
         */
        for (int i = 0; i < pecas; i++)
+
        {
-           int embaralhar = rand () % 28;
+        int embaralho = rand () % 28;
+
+        Peca teste = pecas[embaralho];
+        pecas[embaralho] = pecas[i];
+        pecas[i] = teste;
        }
-
-       Peca teste = pecas[embaralhar];
-       pecas[embaralhar] = pecas [i];
-
-    }
 }
 
 void imprimiPeca(baralho Peca[])
