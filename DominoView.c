@@ -81,15 +81,16 @@ void comecar_jogo()
         } while (opcao2 !=5 ); // Enquanto opção for diferente de 5
 }
 
-int  perguntaNumeroJodagores () 
+int definir_quantidade() 
 {
 	int num_jogadores = 0 ;
 	bool flag;
 
-	do {
+	do 
+    {
 		printf ( "Digite a quantidade de jogadores: \n" );
 		scanf ( "%d" , & num_jogadores);
-		flag = (num_jogadores < 2 ) || (num_jogadores> 4 );
+		flag = (num_jogadores < 2 ) || (num_jogadores > 4 );
 		if (flag)
 			printf ("Só é possível jogar de 1 a 2 pessoas! " );
 
@@ -98,7 +99,6 @@ int  perguntaNumeroJodagores ()
 
 	printf ("\nVamos começar!" );
 	return num_jogadores;
-
 }
 
 
@@ -137,7 +137,7 @@ int main()
             scanf ("%d", &opcao);
             switch (opcao) // Caso a opção seja: 
             {
-                case 1: definir_quantidade(); break;   //1: Chama a função que vai começar o jogo
+                  case 1: definir_quantidade(); break;   //1: Chama a função que vai começar o jogo
                 //case 2: salvar_jogo (); break;   2: Chama a função para salvar o jogo
                 //case 3: continuar_jogo(); break; 3: Chama a função para continuar o jogo 
                 //case 4: carregar_jogo(); break;  4: Chama a função para carregar o jogo

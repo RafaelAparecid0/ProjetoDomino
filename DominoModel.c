@@ -17,39 +17,45 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-//DECLARAÇÃO DO STRUCT PARA AS PEÇAS
+//DECLARAÇÃO DO TSTRUC PARA AS PEÇAS
 
 typedef struct Peca
 {
     int esq;
-    int dir;
+    int dir;    
 } Peca [28];
 
 Peca pecas;
 
-printf("\n");
-//Criação de uma mesa:
-nPedras;
-printf("\n Computador: Essas São as pedras da mesa\n ");
-if(nPedras>-1){
-				printf("\n Computador: Essa é a proxima pedra a ser comprada: ");
-				mostraTopoPilha(nPedras);
-				printf("\n");
-			}
-else
-				printf("\n Computador - Não existe mais pedras para compra \n");
+void Mesa ()
+{
+    printf("\n");
 
-			//imprime a mão dos jogadores
-			for(i=0 ; i<numeroJogadores ; i++){
-				printf("\n Computador - Essas são as peças do jogador %d \n ",i+1);
-				//imprimeListaSimples(J[i]);
-			}
-			printf("\n\n Computador - aperte enter para ver a próxima rodada");
-			getchar();
-			clear();
+    //Criação de uma mesa:
+    tPedra;
 
+    printf("\n Computador: Essas São as pedras da mesa\n ");
 
+    if(tPedra>-1)
+        {
+            printf("\n Computador: Essa é a proxima pedra a ser comprada: ");
+            mostraTopoPilha(nPedras);
+            printf("\n");
+        }
+    else
+            printf("\n Computador - Não existe mais pedras para compra \n");
 
+    //imprime a mão dos jogadores
+    for(i=0 ; i<numeroJogadores ; i++)
+        {
+            printf("\n Computador - Essas são as peças do jogador %d \n ",i+1);
+            //imprimeListaSimples(J[i]);
+        }
+        printf("\n\n Computador - aperte enter para ver a próxima rodada");
+        getchar();
+        clear();
+
+}
 //Declaração para struct de distribuição de peças
 
 typedef struct tPedra 
@@ -57,15 +63,13 @@ typedef struct tPedra
     int pedraBuffer;
 } tPedra;
 
-
-
-
 // Case 2: Embaralhar as peças do domino 
 
-Peca [] embaralhar (Peca[] origin)
+void embaralhado (Peca pecas[])
+
 {
-    Peca[28] embaralhado;
-    int[28] crivo;
+    Peca pecas[28];
+    /*int[28] crivo;
     int i,j, index;
     for(i=0;i<28;i++)
     {
@@ -80,18 +84,27 @@ Peca [] embaralhar (Peca[] origin)
         }
         embaralhado[j]=origin[index];
         crivo[index]=1;
+        */
+       for (int i = 0; i < pecas; i++)
+       {
+           int embaralhar = rand () % 28;
+       }
+
+       Peca teste = pecas[embaralhar];
+       pecas[embaralhar] = pecas [i];
+
     }
-    return embaralhado;
 }
 
-void imprimiPeca(Peca[] baralho)
+void imprimiPeca(baralho Peca[])
 {
     int i;
     int tamanho = (sizeof(baralho)/sizeof(Peca));
-    for(i = 0; i<tamanho;i++)
+    for(i = 0; i<tamanho; i++)
     {
         printf("[%d|%d]", baralho[i].esq,baralho[i].dir);
     }
+    return embaralhar;
 }
 
 // Case 1: Montar as peças do dominó com a numeração correta do jogo 

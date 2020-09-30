@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<stdbool.h>
+#include <stdlib.h>
+/*
 int  perguntaNumeroJodagores () {
                               //AJUSTAR PARA APENAS 2 JOGADORES!!!!!!
 	int num_jogadores = 0 ;
@@ -42,3 +44,62 @@ int  perguntaNumeroJodagores () {
 			printf("\n\n Computador - aperte enter para ver a próxima rodada");
 			getchar();
 			clear();
+*/
+
+int main()
+{
+
+  int magic;  /* nï¿½mero mï¿½gico */
+  int guess;  /* palpite do usuï¿½rio */
+  srand (time(NULL)); //Inicia o gerador de nï¿½meros aleatï¿½rios da biblioteca <time.h>
+  magic = rand() % 9;  //Gera nï¿½meros aleatï¿½rios de 0 a 9
+  printf("%d\n", magic);
+  do
+	{
+	  printf("Adivinhe o nÃºmero mÃ¡gico: ");
+	  scanf("%d", &guess);
+
+	  if(guess == magic)
+	  {
+	  	printf("*************************************************************");
+		printf("\n                        PARABÃ©NS!                        \n");
+		printf("\n                      Vocï¿½ Acertou!                      \n");
+		printf("*************************************************************");
+	  }
+
+	}while (guess != magic);
+
+
+
+}
+
+
+
+void embaralharPecas (tipo_Domino pecas[]) 
+{
+	int vetSize = 28;
+	for (int i = 0; i < vetSize; i++)
+	{
+	int r = rand() % 28;
+
+	tipo_Domino temp = pecas[r];
+
+	pecas[r] = pecas[i];
+	pecas[i] = temp;
+	}
+
+	return;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
