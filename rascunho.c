@@ -73,8 +73,6 @@ int main()
 
 }
 
-
-
 void embaralharPecas (tipo_Domino pecas[]) 
 {
 	int vetSize = 28;

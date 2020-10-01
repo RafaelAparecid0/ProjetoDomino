@@ -72,7 +72,7 @@ void Mesa ()
 
 // Case 2: Embaralhar as peças do domino 
 
-void embaralhado (Peca pecas[])
+int embaralhado (Peca pecas[])
 {
     Peca pecas[28];
     /*int[28] crivo;
@@ -97,28 +97,30 @@ void embaralhado (Peca pecas[])
         int embaralho = rand () % 28;
 
         Peca teste = pecas[embaralho];
+        /*
         pecas[embaralho] = pecas[i];
         pecas[i] = teste;
+        */
        }
 }
 
-void imprimiPeca(baralho Peca[])
+void imprimiPeca(baralho)
 {
-    int i;
     int tamanho = (sizeof(baralho)/sizeof(Peca));
-    for(i = 0; i<tamanho; i++)
+    for(int i = 0; i<tamanho; i++)
     {
-        printf("[%d|%d]", baralho[i].esq,baralho[i].dir);
+        printf("[%d|%d]", baralho[i].esq,baralho[i].dir); //Precisaria de ponteiro também
     }
-    return embaralhar;
+    embaralhado (baralho);
+    return 0;
 }
 
 // Case 1: Montar as peças do dominó com a numeração correta do jogo 
 
-Peca[] montar()
+int montar(Peca pecas[])
 {
-    peca nova;
-    Peca[28] baralho;
+    pecas nova;
+    int baralho;
     int i,j;
     int count = 0;
     for(i=0;i<=6;i++)
@@ -130,7 +132,8 @@ Peca[] montar()
             baralho[count]= nova;
         }
     }
-    return baralho;
+    imprimiPeca(baralho);
+    return 0;
 }
 
 
