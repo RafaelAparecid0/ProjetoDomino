@@ -123,6 +123,21 @@ void  start ( struct game * game, int n) {
 	}
 };
 
+//FAZER A PRIMEIRA JOGADA...
+
+
+//Variáveis
+	int i,p, j, enderecoJogador, pontas[2], vencedor;
+	tPedra pedraBuffer;
+	bool esquerda, inicio, flag, denovo;
+//Faz a primeira jogada, procurando o maior peça
+		enderecoJogador = buscaIniciante(J,numeroJogadores);
+		printf("\n Computador - O primeiro jogador é o número %d\n", enderecoJogador+1);
+		pedraBuffer = removeElementoPosListaSimples(&J[enderecoJogador], 0);
+		if(!insereInicioListaSimples(&Mesa, pedraBuffer)) erro();
+		printf(" Jogador %d - Coloco a pedra ", enderecoJogador+1);
+		imprimePedra(pedraBuffer);
+
 
 
 
