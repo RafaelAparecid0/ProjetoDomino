@@ -93,7 +93,35 @@ void embaralharPecas (tipo_Domino pecas[])
 
 
 
+//DISTRIBUIÇÃO DE PEÇAS:
 
+// distribuir dominós
+void  start ( struct game * game, int n) {
+	struct domino * tile;
+	struct player * player;
+	int i;
+
+	se (n < 1 || n> 7 ) n = 7 ;
+
+	if (jogo-> jogadores == NULL ) return ;
+
+	jogador = jogo-> jogadores ;
+	enquanto (jogador! = NULL ) {
+		jogador-> peças = jogo-> peças ;
+		jogador-> peças -> anterior = NULL ;
+		i = 1 ;
+		while (game-> tiles ! = NULL && i <n) {
+			jogo-> peças = jogo-> peças -> próximo ;
+			i ++;
+		}
+
+		telha = jogo-> peças ;
+		jogo-> peças = jogo-> peças -> próximo ;
+		telha-> próximo = NULL ;
+		jogo-> peças -> anterior = NULL ;
+		jogador = jogador-> anterior ;
+	}
+};
 
 
 
