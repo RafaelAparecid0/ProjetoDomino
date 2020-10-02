@@ -24,7 +24,7 @@ int imprimiPeca(tipo_Peca domino[])
 {
     int i;
     int tamanho = (sizeof(domino)/sizeof(domino));
-    for(i = 0; i<tamanho; i++)
+    for(i = 0; i< domino; i++)
     {
         printf("[%d|%d]", domino[i].esq, domino[i].dir); 
     }
