@@ -32,6 +32,8 @@ int imprimiPeca(tipo_Peca domino[])
     return 0;
 }
 
+/**************************************************************/
+
 int main (tipo_Peca domino[])
 {
     tipo_Peca nova;
