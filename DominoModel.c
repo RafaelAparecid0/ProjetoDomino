@@ -23,9 +23,9 @@ typedef struct Peca
 {
     int esq;
     int dir;    
-} Peca [28];
+} tipo_Peca;
 
-Peca pecas;
+tipo_Peca domino [28];
 
 //Declaração para struct de distribuição de peças
 
@@ -44,7 +44,7 @@ void Mesa ()
     printf("\n");
 
     //Criação de uma mesa:
-    Peca pecas;
+    tipo_Peca pecas;
 
     int numeroJogadores = num_jogadores();
 
@@ -72,55 +72,34 @@ void Mesa ()
 
 // Case 2: Embaralhar as peças do domino 
 
-int embaralhado (Peca pecas[])
+int embaralhado (tipo_Peca pecas[])
 {
-    Peca pecas[28];
-    /*int[28] crivo;
-    int i,j, index;
-    for(i=0;i<28;i++)
-    {
-        crivo[i]=0;
-    }
-    for(j=0;j<28;j++)
-    {
-        index=geraAleatorio();
-        while(crivo[index]==1)
-        {
-            index=geraAleatorio();
-        }
-        embaralhado[j]=origin[index];
-        crivo[index]=1;
-        */
        for (int i = 0; i < pecas; i++)
-
        {
         int embaralho = rand () % 28;
-
-        Peca teste = pecas[embaralho];
-        /*
+        tipo_Peca teste = pecas[embaralho];
         pecas[embaralho] = pecas[i];
         pecas[i] = teste;
-        */
        }
 }
 
-void imprimiPeca(baralho)
+void imprimiPeca(tipo_Peca pecas[])
 {
-    int tamanho = (sizeof(baralho)/sizeof(Peca));
+    int tamanho = (sizeof(pecas)/sizeof(pecas));
     for(int i = 0; i<tamanho; i++)
     {
-        printf("[%d|%d]", baralho[i].esq,baralho[i].dir); //Precisaria de ponteiro também
+        printf("[%d|%d]", pecas[i].esq,pecas[i].dir); //Precisaria de ponteiro também
     }
-    embaralhado (baralho);
+    embaralhado (pecas);
     return 0;
 }
 
 // Case 1: Montar as peças do dominó com a numeração correta do jogo 
 
-int montar(Peca pecas[])
+int montar(tipo_Peca pecas[])
 {
-    pecas nova;
-    int baralho;
+    tipo_Peca nova;
+    int pecas;
     int i,j;
     int count = 0;
     for(i=0;i<=6;i++)
@@ -129,10 +108,11 @@ int montar(Peca pecas[])
         {
             nova.esq = i;
             nova.dir= j;
-            baralho[count]= nova;
+            pecas[count]= nova;
+            count++;
         }
     }
-    imprimiPeca(baralho);
+    imprimiPeca(pecas);
     return 0;
 }
 
