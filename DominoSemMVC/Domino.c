@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//PROGRAMA SEM MVC
+
 typedef struct Peca
 {
     int esq;

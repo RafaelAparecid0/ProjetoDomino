@@ -106,6 +106,7 @@ int definir_quantidade()
 
 int main()
 {
+    
     int opcao;
         do // Faça
         {
