@@ -6,7 +6,7 @@
 */
 
 
-#include <stdio.h>
+/*#include <stdio.h>
 #include<stdbool.h>
 
 /*
@@ -14,7 +14,7 @@
                             Camada de apresentação ou visualização                            
     ********************************************************************************"
 */
-void sobre_jogo()
+/*void sobre_jogo()
 {
     printf ("*******************\n");
     printf ("Desenvolvido por:\n");
@@ -49,7 +49,7 @@ void continuar_jogo()
 */
 //Menu para começar o jogo
 
-void comecar_jogo()
+/*void comecar_jogo()
 
 { 
     int opcao2;
