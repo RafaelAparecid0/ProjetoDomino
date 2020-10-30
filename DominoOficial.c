@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <ctype.h>
 #define N 28
 
 /*********************************************
@@ -22,23 +23,76 @@ tipo_Peca maoJogador2   [28];
 tipo_Peca maoComputador [28];
 tipo_Peca monte         [28];
 tipo_Peca mesa          [28];
-tipo_Peca Peca_Inicial  [28];
+tipo_Peca Peca_Inicial  [28]; 
 
 /*********************************************
  *          JOGADAS P/ 2 JOGADORES
  ********************************************/
 
-int JogadorVsComputador (tipo_Peca domino[], tipo_Peca jogador1[],tipo_Peca Computador[], tipo_Peca monte[])
+int Jogador1VsJogador2 (tipo_Peca domino[], tipo_Peca jogador1[],tipo_Peca jogador2[], tipo_Peca monte[])
 {
+    fflush (stdin);
     char op;
-    printf("J - Jogar\n");
-    printf("C - Comprar\n");
-    printf("P - Passar\n");
-    printf("S - Salvar (Interromper o jogo)\n");
-    printf("Escolha uma opção: ");
-    scanf("%c", &op);
-}
+    int num1_peca, i, k;
+    size_t nvetor = 0;
+    /*do
+    {*/
+        printf("J - Jogar\n");
+        printf("C - Comprar\n");
+        printf("P - Passar\n");
+        printf("S - Salvar (Interromper o jogo)\n");
+        printf("Escolha uma opção: ");
+        scanf("%c", &op);
+        op = toupper (op);
+        switch (op)
+        {
+            case 'J':
+                printf("\n");
+                printf("Escolha uma peça para jogar:"); 
+                scanf("%d", &num1_peca);
+                for (i = 1; i < 8; i++)     //Loop da mão do Jogador
+                {
+                    jogador1[i] = domino[i];     
+                    for(k=27; k<28; k++);   //Loop da peça inicial
+                    {
+                        Peca_Inicial[i] = domino[k];   
+                        if (num1_peca == i)
+                        {
+                            printf("\n\n===========\n");
+                            printf("Mesa: [%d|%d][%d|%d]", Peca_Inicial[i],jogador1[i]);
+                            printf("\n\n===========\n");
+                        }  
+                    }//Opções para tirar: Substituir peça por -1/-1 (peça não existe)
+                } 
+                printf("\n\n===============\n");
+                printf("Mão Jogador 1:\n");
+                printf("===============\n");
+                for (i = 1; i < 8 ; i++)
+                {
+                    jogador1[i]= domino[i];
+                    if (num1_peca == i )
+                    {
+                        jogador1[i] = jogador1[i-1];
+                    }
+                }
+                
+                for (i = 1; i < 7; i++)
+                {
+                    printf("[%d|%d]", jogador1[i]);
+                }
+                break;
 
+            case 'C':
+                printf("Entrei\n"); break;
+            case 'P':
+                printf("Entrei\n"); break;
+            case 'S':
+                printf("Entrei\n"); break;
+            default: printf("Por favor, digite uma das opções acima\n");
+        }
+    //}while ();
+    system("pause");
+}
 
 /*********************************************
  *            MESA P/ 2 JOGADORES
@@ -49,7 +103,7 @@ int Mesa_2Jogadores (tipo_Peca domino[], tipo_Peca jogador1[],tipo_Peca jogador2
     printf("********************************************************************************");
     printf("\n                                 DOMINEIRO'S                                \n");
     printf("********************************************************************************");	   
-    int h,i,j,k;
+    int h,i,j,k, t=1;
     printf("\n\n==========\n");
     for (h=27; h<28; h++)
     {
@@ -60,7 +114,7 @@ int Mesa_2Jogadores (tipo_Peca domino[], tipo_Peca jogador1[],tipo_Peca jogador2
     printf("\n\n===============\n");
     printf("Mão Jogador 1:\n");
     printf("===============\n");
-    for(i=0; i<7; i++) 
+    for(i=1; i<8; i++) 
     {
         jogador1[i] = domino[i];   //Mão do Jogador 1
         printf("%d.[%d|%d]. ", i, jogador1[i]);
@@ -68,13 +122,15 @@ int Mesa_2Jogadores (tipo_Peca domino[], tipo_Peca jogador1[],tipo_Peca jogador2
     printf("\n\n===============");
     printf("\nMão Jogador 2:\n");
     printf("===============\n");
-    for(j=7; j<14; j++) 
+    
+    for(j=8; j<15; j++) 
     {
         jogador2[i] = domino[j];   //Mão do Jogador 2
-        printf("%d.[%d|%d].", i, jogador2[i]);
-    } 
+        printf("%d.[%d|%d]. ",t++, jogador2[i]);
+    }
+    
     //printf("\n\nMonte:\n");
-    for(k=14; k<27; k++) 
+    for(k=15; k<27; k++) 
     {
         monte[i] = domino[k];   //Monte
         //printf("[%d|%d]", monte[i]);
@@ -83,7 +139,6 @@ int Mesa_2Jogadores (tipo_Peca domino[], tipo_Peca jogador1[],tipo_Peca jogador2
 }
 
 int inicio_2Jogadores (num_jogadores)
-
 {
     //printf("\nDominio Montado\n");
     montarDomino(domino);
@@ -92,6 +147,7 @@ int inicio_2Jogadores (num_jogadores)
     embaralharDomino(domino);
     //imprimirDomino(domino);
     Mesa_2Jogadores(domino, maoJogador1, maoJogador2, monte);
+    Jogador1VsJogador2(domino, maoJogador1, maoJogador2, monte);
     system("pause");
 }
 
@@ -101,8 +157,9 @@ int inicio_2Jogadores (num_jogadores)
 
 int Jogador1VsComputador (tipo_Peca domino[], tipo_Peca jogador1[],tipo_Peca Computador[], tipo_Peca monte[])
 {
+    fflush (stdin);
     char op;
-    int num_peca, i;
+    int num_peca, i, k;
     printf("J - Jogar");
     printf("\nC - Comprar");
     printf("\nP - Passar");
@@ -110,6 +167,7 @@ int Jogador1VsComputador (tipo_Peca domino[], tipo_Peca jogador1[],tipo_Peca Com
     printf("\nEscolha uma opção: ");
     scanf("%c", &op);
     op = toupper(op);
+
     switch (op)
     {
         case 'J':
@@ -118,14 +176,18 @@ int Jogador1VsComputador (tipo_Peca domino[], tipo_Peca jogador1[],tipo_Peca Com
             scanf("%d", &num_peca);
             for (i = 1; i < 8; i++)
             {
-                jogador1[i] = domino[i];   //Mão do Jogador 1
-                if (num_peca == jogador1[i])
+                jogador1[i] = domino[i];      //Mão do Jogador 1
+                for(k=27; k<28; k++); 
                 {
-                    printf("%d.[%d|%d]. ", i, jogador1[i]);
-                }
-                
-            }
-            
+                    Peca_Inicial[i] = domino[k];   //Monte
+                    if (num_peca == i)
+                    {
+                        printf("\n\n===========\n");
+                        printf("Mesa: [%d|%d][%d|%d]\n\n", Peca_Inicial[i],jogador1[i]);
+                        printf("\n\n===========\n");
+                    }  
+                }//Opções para tirar: Substituir peça por -1/-1 (peça não existe)
+            } break;
         case 'C':
             printf("Entrei\n"); break;
         case 'P':
@@ -142,7 +204,7 @@ int Jogador1VsComputador (tipo_Peca domino[], tipo_Peca jogador1[],tipo_Peca Com
 
 int Mesa_1Jogador (tipo_Peca domino[], tipo_Peca jogador1[],tipo_Peca Computador[], tipo_Peca monte[]) 
 {
-    fflush (stdin); //Função para limpar o buffer do teclado, normalmente utilizada em conjunto da biblioteca <stdio.h>
+    //fflush (stdin); //Função para limpar o buffer do teclado, normalmente utilizada em conjunto da biblioteca <stdio.h>
     int h,i,j,k;
     printf("********************************************************************************");
     printf("\n                                 DOMINEIRO'S                                \n");
